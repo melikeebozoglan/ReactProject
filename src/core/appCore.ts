@@ -1,10 +1,13 @@
 import apiRequest from "./api/request";
 import services from "./services";
 import axiosInstance from "./api/axiosInstance";
+import * as cookies from "./cookies";
 
 class AppCore {
     api = apiRequest;
     services = services;
+
+    cookies = cookies;
 
     constructor() {
         const baseURL = import.meta.env.VITE_API_URL;
