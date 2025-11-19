@@ -5,7 +5,7 @@ import { MenuIcon } from "../../assets/icons";
 import { useState } from "react";
 
 function Header() {
-    const [isOpen, setIsOpen] = useState(false);
+    const [isOpen, setIsOpen] = useState<boolean>(false);
     return (
         <>
             <header className="bg-[#FFF0FF] w-full h-13 px-6 flex items-center justify-between border-b border-black md:px-12">
