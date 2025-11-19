@@ -1,3 +1,5 @@
+//Header.tsx
+
 import { Link, NavLink } from "react-router-dom";
 import { MenuIcon } from "../../assets/icons";
 import { useState } from "react";
@@ -22,7 +24,7 @@ function Header() {
             </header>
 
             {isOpen &&
-                <nav aria-label="" className="fixed top-13 right-0 flex flex-col gap-4 w-1/5 h-1/6 z-50 p-6 border border-black-300 rounded-tl-xl rounded-bl-xl bg-white md:hidden">
+                <nav aria-label="" className="fixed top-13 right-0 flex flex-col gap-4 w-1/5 h-1/6 z-50 p-6 border border-black-300 rounded-tl-xl rounded-bl-xl bg-white md:hidden overflow-auto">
                     <NavLink to="/" className={({ isActive }) => `text-sm font-light hover:text-black ${isActive ? "text-black" : "text-gray-600"}`}>Home</NavLink>
                     <NavLink to="/detail" className={({ isActive }) => `text-sm font-light hover:text-black ${isActive ? "text-black" : "text-gray-600"}`}>Detail</NavLink>
                 </nav>
