@@ -9,7 +9,7 @@ function Header() {
     return (
         <>
             <header className="bg-[#FFF0FF] w-full h-13 px-6 flex items-center justify-between border-b border-black md:px-12">
-                <Link to="/" aria-label="" className="text-xl md:text-2xl font-medium text-black">
+                <Link to="/" aria-label="" className=" md:text-2xl font-medium text-black">
                     Adını Belirleyemediğim Proje
                 </Link>
 

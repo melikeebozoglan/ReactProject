@@ -1,9 +1,5 @@
-// index
+import * as service from "./xService";
 
-import * as testService from './testService';
-
-const services = {
-    testService,
+export default {
+  ...service,
 };
-
-export default services;

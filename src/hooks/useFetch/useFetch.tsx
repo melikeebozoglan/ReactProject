@@ -6,11 +6,10 @@ import {
   setGlobalLoading,
 } from "../../redux/slices/fetchSlice";
 
-type ServiceKeys = keyof typeof appCore.services;
+type MethodKeys = keyof typeof appCore.services;
 
-interface TriggerProps<S extends ServiceKeys> {
-  serviceName: S;
-  methodName: keyof (typeof appCore.services)[S];
+interface TriggerProps {
+  methodName: MethodKeys;
   payload?: any;
 }
 
@@ -19,28 +18,19 @@ function useFetch() {
   const dispatch = useDispatch();
 
   const trigger = useCallback(
-    async <S extends ServiceKeys>({
-      serviceName,
-      methodName,
-      payload,
-    }: TriggerProps<S>) => {
+    async ({ methodName, payload }: TriggerProps) => {
       try {
         dispatch(setGlobalLoading(true));
 
-        const serviceObject = appCore.services[serviceName];
-        const serviceMethod = serviceObject[methodName];
+        const serviceMethod = appCore.services[methodName];
 
         if (typeof serviceMethod !== "function") {
-          throw new Error(
-            `'${String(serviceName)}.${String(
-              methodName
-            )}' bir fonksiyon değil.`
-          );
+          throw new Error(`'${String(methodName)}' bir fonksiyon değil.`);
         }
 
         const response = await serviceMethod(payload);
-
         setData(response);
+
         return response;
       } catch (err: any) {
         console.error("useFetch error:", err);

@@ -19,6 +19,25 @@ const request = async <T>({
     config = {},
 }: RequestProps): Promise<T> => {
     try {
+        const isExternalUrl =  url.startsWith("http://") || url.startsWith("https://");
+
+        if (isExternalUrl) {
+            const qs =
+                method.toUpperCase() === "GET"
+                    ? "?" + new URLSearchParams(data).toString()
+                    : "";
+
+            const fetchUrl = url + qs;
+
+            const response = await fetch(fetchUrl);
+
+            if (!response.ok) {
+                throw new Error("External API error: " + response.status);
+            }
+
+            return (await response.json()) as T;
+        }
+
         const finalConfig: AxiosRequestConfig = {
             url,
             method,
