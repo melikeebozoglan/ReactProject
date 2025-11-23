@@ -1,4 +1,4 @@
-import * as service from "./xService";
+import * as service from "./allService";
 
 export default {
   ...service,

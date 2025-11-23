@@ -1,17 +1,14 @@
 import { useCallback, useState } from "react";
 import appCore from "../../core/appCore";
 import { useDispatch } from "react-redux";
-import {
-  setGlobalError,
-  setGlobalLoading,
-} from "../../redux/slices/fetchSlice";
+import { setGlobalError, setGlobalLoading, } from "../../redux/slices/fetchSlice";
 
 type MethodKeys = keyof typeof appCore.services;
 
 interface TriggerProps {
   methodName: MethodKeys;
   payload?: any;
-}
+};
 
 function useFetch() {
   const [data, setData] = useState<any>(null);

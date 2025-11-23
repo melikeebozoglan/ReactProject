@@ -13,7 +13,7 @@ export const AppRouter = createBrowserRouter([
         element: <Home />,
       },
       {
-        path: "detail/",
+        path: "/detail/:cityName",
         element: <Detail />,
       },
     ],

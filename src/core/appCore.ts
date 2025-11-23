@@ -16,7 +16,7 @@ class AppCore {
             axiosInstance.defaults.baseURL = baseURL;
         }
         else {
-            console.warn("⚠️ VITE_API_URL tanımlı değil. Fake servislerle devam ediliyor.");
+            console.warn("API_URL tanımlı değil. Fake servislerle devam ediliyor.");
         }
     }
 }

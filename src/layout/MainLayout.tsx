@@ -7,12 +7,10 @@ import type { RootState } from "../redux/store";
 
 const MainLayout = () => {
   const dispatch = useDispatch();
-  const { globalLoading, globalError } = useSelector(
-    (state: RootState) => state.fetch
-  );
+  const { globalLoading, globalError } = useSelector((state: RootState) => state.fetch);
 
   return (
-    <div className="flex flex-col min-h-screen bg-[#F9F9FB]">
+    <div className="flex flex-col min-h-screen bg-[#F9F9FB] overflow-y-auto">
       {globalLoading && <Loader />}
 
       {globalError && (
@@ -24,7 +22,7 @@ const MainLayout = () => {
 
       <Header />
 
-      <main className="flex-1 w-full max-w-7xl mx-auto px-4 py-6 md:px-6">
+      <main className="flex-1 w-full mx-auto px-4 py-3 md:px-6 md:py-5 lg:px-10 xl:px-50">
         <Outlet />
       </main>
 

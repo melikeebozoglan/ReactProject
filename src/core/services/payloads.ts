@@ -1,0 +1,1 @@
+// API’ye gönderilecek input’un tipi
